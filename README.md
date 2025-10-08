@@ -1,4 +1,4 @@
-# Ex02 Django ORM Web Application
+ # Ex02 Django ORM Web Application
 ## Date: 
 
 ## AIM
@@ -23,12 +23,30 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+from django.db import models
+from django.contrib import admin
+
+class Employee(models.Model):
+    eid = models.CharField(max_length=20, help_text="Employee ID")
+    name = models.CharField(max_length=100)
+    salary = models.IntegerField()
+    age = models.IntegerField()
+    email = models.EmailField()
+
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = ('eid', 'name', 'salary', 'age', 'email')
+
+    from django.contrib import admin
+from .models import Employee,EmployeeAdmin
+admin.site.register(Employee, EmployeeAdmin)
+```
 
 
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
+<img width="1888" height="577" alt="image" src="https://github.com/user-attachments/assets/24346b9b-99e4-403f-9636-b07f18348baf" />
 
 
 ## RESULT
